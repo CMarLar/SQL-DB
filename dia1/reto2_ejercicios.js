@@ -18,8 +18,17 @@ connection.connect((error) => {
 • Obtener todos los datos de los profesores.
 • Realizar todos los puntos en MysqlWorkbench y luego en Node.js*/
 
-// let sql = "SELECT first_name,last_name FROM students";
-// connection.query(sql,(err,result) => {
+let sql= "UPDATE marks SET mark = 0";
+connection.query(sql,(err,result) => {
+    if(err){console.log(err);}
+    else{
+        console.log("Notas a 0");
+        console.log(result);
+    }
+    });
+
+// let sql1 = "SELECT first_name,last_name FROM students";
+// connection.query(sql1,(err,result) => {
 //     if(err){console.log(err);}
 //     else{
 //         console.log("Datos de estudiante recogido");
