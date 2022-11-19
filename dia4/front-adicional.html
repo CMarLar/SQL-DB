@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API notas</title>
+    <!-- Bootstrap CSS: -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Front js -->
+    <script src="index-adicional.js"></script>
+
+</head>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4vXh63B14VYWSVwtjEvFHE40zV01onRywz__sDr2AJSEtDGDCe3PyBRtS7n5pjWrV2R8&usqp=CAU" alt="" style="width:50px ;"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="front.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="front-notas.html">Notas</a></li>
+              <li><a class="dropdown-item" href="front-adicional.html">Info adicional</a></li>
+              <li><hr class="dropdown-divider"></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<body>
+    <div class="container mt-5">
+        <h1>Información adicional</h1>
+        <h3>Introduce los datos:</h3>
+        <!-- FORMULARIO -->
+        <form>
+            <h5 class="mt-3">Introduce un ID de alumno o de profesor</h5>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Id del alumno</label>
+                <input type="text" class="form-control" id="ID" aria-describedby="emailHelp" placeholder="studentID/teacher_ID">
+            </div>
+
+            <p>Pulsa Media para obtener la nota media de un alumno</p>
+            <p>Pulsa Apuntadas para ver todas las asignaturas a las que está apuntado un alumno</p>
+            <p>Pulsa Impartidas para ver todas las notas que imparte un profesor</p>
+        <!-- BOTONES -->
+            <button type="button" class="btn btn-primary" id="show" onclick="getAverage()">Media</button>
+            <button type="button" class="btn btn-secondary" id="create" onclick="getSignedUp()">Apuntadas</button>
+            <button type="button" class="btn btn-success" id="update" onclick="getTaughtSubjects()">Impartidas</button>
+        </form>
+
+        
+
+    
+        </div>
+        <!-- CIERRE DEL PRIMER CONTENEDOR -->
+        <div class="container mt-5">
+        <h2>Notas:</h2>
+        </div>
+
+        <div class="container mt-5" id=results>
+            <!-- LOS RESULTADOS APARECEN AQUÍ -->
+            <!-- <span style="font-weight: 500;">Alumno: </span><span></span>
+            <br>
+            <span style="font-weight: 500;">Asignatura: </span><span></span>
+            <br>
+            <span style="font-weight: 500;">Calificación: </span><span></span>
+            <br> -->
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+<!-- Bloque Toast-->
+
+<div id = "toast" class="toast position-fixed top-0 end-0 p-3 align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+<div class="d-flex">
+    <div id ="toastText" class="toast-body">
+    </div>
+    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+</div>
+</div>
+
+<!-- Bootstrap js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+</body>
+</html>
