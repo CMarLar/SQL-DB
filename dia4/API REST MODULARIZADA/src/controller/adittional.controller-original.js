@@ -77,27 +77,7 @@ function getTaughtSubjects (request,response)
 
     connection.query(sql, (err,result) =>{
         if(err){console.log(err);}
-        //COMIENZO A MODIFICAR
-        else{
-                        // FUNCIÓN PARA QUE SALGAN TODAS LAS ASIGNATURAS EN LA MISMA LÍNEA
-                        const resultNew = result.reduce((prev, next) =>{// método reduce para convertir un array en un úncio resultado.
-                            if(prev.find((p)=>p.teacher_id === next.teacher_id )){//si prev (el primer estudiante que entra en el array vacío) tiene un id existente
-                                // EXISTE
-                                const index = prev.findIndex((p)=>p.teacher_id === next.teacher_id );//compruébame que el índice para hallar la posición del estudiante dentro del array
-                                prev[index].subjects.push(next.title);//haz push de las asignaturas dentro del array subjects
-                            }else{
-                                // NO EXISTE
-                               prev.push({ 
-                                    first_name:next.first_name,//declaramos un primer objeto con parámetros iguales a los que le van a llegar del json
-                                    last_name:next.last_name,
-                                    teacher_id:next.teacher_id,
-                                    subjects: [next.title]//cambiamos title a subjects y le decimos que va a ser un array de los title de las asignaturas
-                                    })
-                            }
-                            return prev;
-                        }, [])
-                        response.send(resultNew)
-        }
+        else{response.send(result)}
     })
 }
 

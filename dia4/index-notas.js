@@ -1,6 +1,5 @@
 //FRONT JS
 
-const { stringify } = require("querystring");
 
 //Clase
 class Mark
@@ -21,6 +20,10 @@ function getMarks ()
 {
     let student_id = document.getElementById("student_id").value;
 
+    if (student_id == "" || student_id == null){
+        showToast("Introduce un ID de alumno", "bg-warning")
+    }
+    else{
         let url = "http://localhost:3000/notas?id=" + student_id;
         let param = 
         {
@@ -35,15 +38,16 @@ function getMarks ()
         })
         .then((result) =>
         {    
-            console.log(result);  
+            console.log(result);
             if (result.length > 0)
             {
                 let shownData = document.getElementById('results')
+                shownData.innerHTML = "";
+                shownData.innerHTML = `<span style="font-weight: 500; text-decoration-underline"><u>Alumno: <u></span><span>${result[0].first_name} ${result[0].last_name}</span>
+                <br><br>`
                 for (let i = 0; i < result.length; i++) {
                     shownData.innerHTML +=
                     `
-                    <span style="font-weight: 500;">Alumno: </span><span>${result[i].first_name} ${result[i].last_name}</span>
-                    <br>
                     <span style="font-weight: 500;">Asignatura: </span><span>${result[i].title}</span>
                     <br>
                     <span style="font-weight: 500;">Calificación: </span><span>${result[i].mark}</span>
@@ -61,7 +65,7 @@ function getMarks ()
             showToast("ERROR: Fallo en la comunicación con el API REST", "bg-danger")
             console.log(error)
         })
-
+    }
 }
 
 //////////POST//////////

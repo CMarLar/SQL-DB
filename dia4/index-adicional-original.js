@@ -28,6 +28,8 @@ function getAverage ()
                 <br>
                 <span style="font-weight: 500;">Nota media total: </span><span>${result[0]['ROUND (AVG(mark),2)']}</span>
                 <br>
+                <span style="font-weight: 500;">Calificación: </span><span></span>
+                <br>
                 `
                     //CÓMO ACCEDER A ATRIBUTOS DE OBJETOS QUE TIENEN NOMBRE CON PARÉNTESIS: con []: https://stackoverflow.com/questions/28142654/how-to-access-object-value-with-parentheses-in-name
 
@@ -161,18 +163,17 @@ function getTaughtSubjects()
         })
         .then((result) =>
         {    
-            //COMIENZO A MODIFICAR
+            
             if (result.length > 0)
             {
                 console.log(result);
                 let shownData = document.getElementById("results")
-                shownData.innerHTML= "";
                 for (let i = 0; i < result.length; i++) {
                     shownData.innerHTML +=
                     `
                     <span style="font-weight: 500;">Profesor: </span><span>${result[i].first_name} ${result[i].last_name}</span>
                     <br>
-                    <span style="font-weight: 500;">Asignatura: </span><span>${result[i].subjects.map((subject)=>` ${subject}`)}</span>
+                    <span style="font-weight: 500;">Asignatura: </span><span>${result[i].title}</span>
                     <br>
                     <br>
                     `
@@ -205,13 +206,12 @@ function getTaughtSubjects()
             .then((result) =>{
                 console.log(result);
                 let shownData = document.getElementById("results")
-                shownData.innerHTML= ""
                 for (let i = 0; i < result.length; i++) {
                     shownData.innerHTML +=
                     `
                     <span style="font-weight: 500;">Profesor: </span><span>${result[i].first_name} ${result[i].last_name}</span>
                     <br>
-                    <span style="font-weight: 500;">Asignatura: </span><span>${result[i].subjects.map((subject)=>` ${subject}`)}</span>
+                    <span style="font-weight: 500;">Asignatura: </span><span>${result[i].title}</span>
                     <br>
                     <br>
                     `

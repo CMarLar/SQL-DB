@@ -1,6 +1,6 @@
 //FRONT JS
 
-const { stringify } = require("querystring");
+//const { stringify } = require("querystring");
 
 //Clase
 class Student
@@ -109,7 +109,8 @@ function getStudent()
 ///////////POST//////////////
 function postStudent()
 {
-    let newStudent = new Student (document.getElementById("first_name").value,
+    debugger;
+    let newStudent = new Student(document.getElementById("first_name").value,
                         document.getElementById("last_name").value,
                         document.getElementById("date").value,
                         document.getElementById("group_id").value,)
@@ -136,7 +137,7 @@ function postStudent()
             if (result == "-1")
                 showToast("ERROR: Error al insertar el dato" , "bg-danger")
             else
-                showToast("Usuario creado con id: " + result, "bg-success")//¿Cuál sería la forma de acceder al result?
+                showToast("Alumno creado con id: " + result[0].studentID, "bg-success")//¿Cuál sería la forma de acceder al result?
 
             console.log(result)
         })
