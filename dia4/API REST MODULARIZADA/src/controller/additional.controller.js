@@ -69,10 +69,10 @@ function getTaughtSubjects (request,response)
 {
     let sql;
     if(request.query.id == null) {
-        sql = "SELECT first_name,last_name,title FROM codenotch2.teacher JOIN subjects_teacher on (teacher.teacher_id = subjects_teacher.teacher_id) JOIN subjects on (subjects_teacher.subject_id = subjects.subject_id)";
+        sql = "SELECT teacher.teacher_id,first_name,last_name,title FROM codenotch2.teacher JOIN subjects_teacher on (teacher.teacher_id = subjects_teacher.teacher_id) JOIN subjects on (subjects_teacher.subject_id = subjects.subject_id)";
     }
     else{
-        sql = "SELECT first_name,last_name,title FROM codenotch2.teacher JOIN subjects_teacher on (teacher.teacher_id = subjects_teacher.teacher_id) JOIN subjects on (subjects_teacher.subject_id = subjects.subject_id) WHERE teacher.teacher_id =" + request.query.id
+        sql = "SELECT teacher.teacher_id,first_name,last_name,title FROM codenotch2.teacher JOIN subjects_teacher on (teacher.teacher_id = subjects_teacher.teacher_id) JOIN subjects on (subjects_teacher.subject_id = subjects.subject_id) WHERE teacher.teacher_id =" + request.query.id
     }
 
     connection.query(sql, (err,result) =>{

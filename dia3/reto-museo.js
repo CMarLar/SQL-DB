@@ -15,15 +15,15 @@ connection.connect((error) => {
 
 //Obtener un listado de todos los objetos que el museo tiene en préstamo, su localización dentro de la exposición, la fecha de expiración de este, la información básica (nombre, apellidos y     email) de la persona que los ha prestado.
 
-let params = []
-let sql= "SELECT title,exhibit,start_date,end_date,first_name,last_name FROM museo.pieces JOIN lent_items on (pieces.piece_id = lent_items.piece_id) JOIN ownerdata on (lent_items.owner_id = ownerdata.ownerdata_id)"
-connection.query(sql,params,(err,result) =>{
-    if(err){console.log(err);}
-    else{
-        console.log("Datos obtenidos");
-        console.log(result);
-    }
-})
+// let params = []
+// let sql= "SELECT title,exhibit,start_date,end_date,first_name,last_name FROM museo.pieces JOIN lent_items on (pieces.piece_id = lent_items.piece_id) JOIN ownerdata on (lent_items.owner_id = ownerdata.ownerdata_id)"
+// connection.query(sql,params,(err,result) =>{
+//     if(err){console.log(err);}
+//     else{
+//         console.log("Datos obtenidos");
+//         console.log(result);
+//     }
+// })
 
 //Obtener de forma ordenada de mayor a menor, el número total de objetos o piezas agrupados por su situación dentro de la organización, esto es, cuántos hay expuestos, cuántos en itinerancia y cuántos almacenados.
 

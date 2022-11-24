@@ -137,7 +137,7 @@ function postStudent()
             if (result == "-1")
                 showToast("ERROR: Error al insertar el dato" , "bg-danger")
             else
-                showToast("Alumno creado con id: " + result[0].studentID, "bg-success")//¿Cuál sería la forma de acceder al result?
+                showToast("Alumno creado con id: " + result.insertId, "bg-success")//¿Cuál sería la forma de acceder al result?
 
             console.log(result)
         })

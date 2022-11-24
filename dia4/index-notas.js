@@ -99,7 +99,7 @@ function postMarks()
             if (result == "-1")
                 showToast("ERROR: Error al insertar el dato" , "bg-danger")
             else
-                showToast("Nueva nota creada con id: " + result, "bg-success")
+                showToast("Nueva nota creada con id: " + result.insertId, "bg-success")
 
             console.log(result)
         })
